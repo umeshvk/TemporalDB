@@ -1,0 +1,52 @@
+<!--
+  Copyright 2014 Umesh Kanitkar
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+    http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<configuration>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+    <file>testFile.log</file>
+    <append>true</append>
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-4relative [%thread] %-5level %logger{50} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  
+  <!-- Log levels FEWIDT: Fatal, Error, Warning, Info, Debug, Trace
+       If Logger level is Fatal  then only logger.fatal calls will be sent to appender
+       If Logger level is Error  then only logger.fatal, logger.error calls will be sent to appender
+       If Logger level is Warning  then only logger.fatal, logger.error, and logger.warn calls will be sent to appender
+       If Logger level is Info  then only logger.fatal, logger.error, logger.warn, and logger.info calls will be sent to appender
+       and so on. 
+  -->
+  <logger name="com.mvdb" level="DEBUG"/>
+
+  <!-- Strictly speaking, the level attribute is not necessary since -->
+  <!-- the level of the root level is set to DEBUG by default.       -->
+  <root level="DEBUG">          
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+  </root>  
+  
+</configuration>

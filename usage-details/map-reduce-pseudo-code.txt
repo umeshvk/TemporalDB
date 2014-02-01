@@ -1,0 +1,33 @@
+#-------------------------------------------------------------------------------
+# Copyright 2014 Umesh Kanitkar
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#-------------------------------------------------------------------------------
+
+
+###Use the file list from this for local testing
+hadoop fs -lsr file:///home/umesh/.mvdb/etl/data/alpha  | awk '{print $8}' | grep 'data\-.*\.dat' | grep ".*\/[0-9]\{14\}/"
+###Use the file list from this for remote testing
+hadoop fs -lsr hdfs://localhost:9000/data/alpha | awk '{print $8}' | grep 'data\-.*\.dat' | grep ".*\/[0-9]\{14\}/"
+
+
+#There are two mvdb directories. One of them is active. The other one is passive. 
+hadoop fs -mkdir /data/alpha/mvdb1
+hadoop fs -mkdir /data/alpha/mvdb2
+for each  load data iteration: 
+   hadoop fs -rmr /data/alpha/mvdb-merge
+   hadoop fs -mkdir /data/alpha/mvdb-merge
+   identify if mvdb1 or mvdb2 is passive. Assume in the example below that mvdb1 is passive. In this case mvdb2 will be active and will be used to serve queries. 
+   for each object objectname: 
+	merge multiple /data/alpha/[start-timestamp,finish-timestamp]/data-objectname.dat and /data/alpha/mvdb1/data-objectname assuming /data/alpha/mvdb1 is the passive mvdb.
+	merge destination will be /data/alpha/mvdb-merge
