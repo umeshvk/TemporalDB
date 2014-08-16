@@ -41,11 +41,7 @@ public class ScanDBChanges  implements IAction
 
     public static void main(String[] args) throws IOException
     {
-        logger.error("error");
-        logger.warn("warning");
-        logger.info("info");
-        logger.debug("debug");
-        logger.trace("trace");
+
         
         String customerName = null;
         String snapshotDir = null;

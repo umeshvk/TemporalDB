@@ -23,7 +23,6 @@ import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.mvdb.etl.dao.ConfigurationDAO;
 import com.mvdb.etl.dao.OrderDAO;

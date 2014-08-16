@@ -25,7 +25,6 @@ import org.apache.commons.cli.PosixParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.mvdb.etl.dao.OrderDAO;
 import com.mvdb.etl.model.Order;
@@ -46,11 +45,7 @@ public class ModifyCustomerData  implements IAction
         ActionUtils.setUpInitFileProperty();
         ActionUtils.createMarkerFile("~/.mvdb/status.ModifyCustomerData.start", true);
         
-        logger.error("error");
-        logger.warn("warning");
-        logger.info("info");
-        logger.debug("debug");
-        logger.trace("trace");
+
         
         String customerName = null; 
         //Date startDate  = null;

@@ -30,11 +30,7 @@ public class App {
     public static void main(String[] args) {
         System.out.println("Hello World!");
         
-        logger.error("error");
-        logger.warn("warning");
-        logger.info("info");
-        logger.debug("debug");
-        logger.trace("trace");
+
         // print internal state
       LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
       StatusPrinter.print(lc);

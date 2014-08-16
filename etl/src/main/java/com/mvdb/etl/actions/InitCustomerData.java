@@ -29,7 +29,6 @@ import org.apache.commons.cli.PosixParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.mvdb.etl.dao.ConfigurationDAO;
 import com.mvdb.etl.dao.OrderDAO;
@@ -49,11 +48,7 @@ public class InitCustomerData  implements IAction
         ActionUtils.assertFileDoesNotExist("~/.mvdb/status.InitCustomerData.complete", "InitCustomerData already done. Start with 100init.sh if required. Exiting");
         ActionUtils.setUpInitFileProperty();
         ActionUtils.createMarkerFile("~/.mvdb/status.InitCustomerData.start");
-        logger.error("error");
-        logger.warn("warning");
-        logger.info("info");
-        logger.debug("debug");
-        logger.trace("trace");
+
         
         Date startDate  = null;
         Date endDate  = null;

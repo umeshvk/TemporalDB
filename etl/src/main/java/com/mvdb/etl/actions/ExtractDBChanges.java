@@ -21,7 +21,6 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
-import java.util.Properties;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -35,7 +34,6 @@ import org.codehaus.jettison.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.mvdb.etl.consumer.OrderJsonFileConsumer;
 import com.mvdb.etl.dao.ConfigurationDAO;
@@ -65,11 +63,7 @@ public class ExtractDBChanges  implements IAction
         ActionUtils.createMarkerFile("~/.mvdb/status.ExtractDBChanges.start", true);
         
         //String schemaDescription = "{ 'root' : [{'table' : 'orders', 'keyColumn' : 'order_id', 'updateTimeColumn' : 'update_time'}]}";
-        logger.error("error");
-        logger.warn("warning");
-        logger.info("info");
-        logger.debug("debug");
-        logger.trace("trace");
+
                 
         String customerName = null;
         final CommandLineParser cmdLinePosixParser = new PosixParser();

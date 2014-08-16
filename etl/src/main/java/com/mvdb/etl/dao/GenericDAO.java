@@ -19,8 +19,6 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
 
-import com.mvdb.etl.consumer.ConsumerException;
-import com.mvdb.etl.consumer.GenericConsumer;
 import com.mvdb.etl.data.DataHeader;
 import com.mvdb.etl.data.Metadata;
 
